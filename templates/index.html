@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    #alpha{
+width: 100%;
+height: 80%;
+;
+    }
+    
+      table {
+          border-collapse: collapse;
+          width: 100%;
+        text-align: center;
+      
+        }
+
+      th, td {
+          border: 1px solid black;
+          padding: 3px;
+          text-align: left;
+      }
+
+      th {
+          background-color: #f2f2f2;
+      }
+      .hell{
+        background-color: red;
+
+      }
+
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rail Yatri</title>
+    <link rel="icon" type="image/x-icon" href="../static/Bright Colorful Playful Funny Donuts Food Circle Logo.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+<body>    
+  {% include 'header.html'   %}
+  <br>
+  <br>
+<h3 style="color: chocolate;text-align: center; margin-bottom: 15px; border-style:solid;"> Track Your Train</h3>
+<main  style="align-items: center;text-align: center;align-items: center;margin-left: 30%; margin-top: 10px; ">
+        <div class="input-group flex-nowrap">
+          
+            <form method="post" action="./track#curr">
+              <fieldset>
+
+              <table style="width: fit-content; height:fit-content;">             
+             <tr> 
+              <label for="alpha" class="input-group-text" id="addon-wrapping"><b> Enter Train Number</b> 
+              <input id="alpha" style="margin: 20px; width: fit-content;" type="text" class="form-control" name="train_no" placeholder="12143" aria-label="12143" aria-describedby="addon-wrapping" required>
+            </tr>
+            <tr>  
+            <label for="beta" class="input-group-text" id="addon-wrapping"><b> Date of Departure</b> 
+              
+              <select id="beta" style="margin: 20px; width: fit-content;"  name="start" class="form-control"    aria-describedby="addon-wrapping" required>
+              <option value="0"> Today </option>
+              <option value="1"> Yesterday </option>
+              <option value="2">Day before Yesterday </option>
+              
+              </select>                  
+            </tr>
+              
+        <div style="margin-top: 10px;">
+          <tr>
+            <button type="submit" class="btn btn-secondary">Search</button>
+          </tr>
+        </div>
+          <tr>
+            {% if message %}
+              {{message}}
+            {% endif %}
+
+
+          </tr>
+          </table>
+        </fieldset>  
+        </form>
+      
+          </div>
+        <br>
+        <br>
+      </main>
+{% if status %}
+  
+
+<div style="align-items: center;text-align: center;align-items: center;margin-left: 30%; margin-top: 10px;">
+<h5 style="align-items: center;">Train Name: {{ train_name}}</h5>
+<h5 style="align-items: center;">start_date: {{ start_date}}</h5>
+<br>
+<table class="hell">
+  <tr>
+    <th>Day No</th>
+    <th>&nbsp;</th>
+    <th>Station Name</th>
+    <th>Arrival Time</th>
+    <th>Departure Time</th>
+    <th>Platform Number</th>
+</tr>
+{% if previous %}
+  
+
+{% for i in previous %}
+            
+<tr style="background-color:rgb(4, 84, 56);">
+  <th>{{i[0]}}</th>
+  <th><img width="25px" height="25px" src="https://cdn-icons-png.flaticon.com/128/10041/10041247.png"></th>
+  <th>{{i[1]}}</th>
+  <th>{{i[2]}}</th>
+  <th>{{i[3]}}</th>
+  <th>{{i[4]}}</th>
+</tr>         
+            {% endfor %}    
+            {% endif %}            
+            
+            <tr style="color: coral;">
+              <th>{{curr[0]}}</th>
+              <th><img width="30px" height="30px" id="curr" src="https://cdn-icons-gif.flaticon.com/11617/11617563.gif"></th>
+              <th>{{curr[1]}}</th>
+              <th>{{curr[2]}}</th>
+              <th>{{curr[3]}}</th>
+              <th>{{curr[4]}}</th>
+            </tr>         
+            {% if upcoming %}
+              
+                        {% for i in upcoming %}
+            
+                        <tr>
+                          <th>{{i[0]}}</th>
+                          <th><img width="25px" height="25px" src="https://cdn-icons-png.flaticon.com/128/10041/10041247.png"> </th>
+                          <th>{{i[1]}}</th>
+                          <th>{{i[2]}}</th>
+                          <th>{{i[3]}}</th>
+                          <th>{{i[4]}}</th>
+                        </tr>         
+                                    {% endfor %}    
+                                      
+
+                                    {% endif %}
+</table>
+
+
+
+
+
+
+</div>
+{% endif %}  
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner" id="alpha">
+        <div class="carousel-item active">
+          <img src="../static/people-watching-as-train-approaches.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../static/highspeed-train-blurring-past-tracks-sunset (1).jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../static/trains-railroad-station.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <footer>
+      {% include 'footer.html'%}
+    </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>

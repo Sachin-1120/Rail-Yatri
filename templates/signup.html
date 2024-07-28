@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Sign Up</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        body{
+            background-image: url('../static/people-watching-as-train-approaches.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+
+</head>
+<body >
+    <div class="container">
+        <div class="signup-form">
+            <img src="../static/Bright Colorful Playful Funny Donuts Food Circle Logo.png" alt="Instagram Logo" class="logo">
+            <form action="/",method='POST'>
+                <input name="username" type="text" placeholder="Username" required>
+                <input name="email" type="text" placeholder="Email" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <input name="cur_password" type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="/">Log In</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-form {
+            text-align: center;
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 30px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #0095f6;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            background-color: #007bff;
+        }
+        
+        p {
+            margin-top: 15px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #0095f6;
+        }
+
+        body{
+            background: linear-gradient(to right , rgb(145, 141, 141) , orange);
+        }
+        
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <img src="../static/Bright Colorful Playful Funny Donuts Food Circle Logo.png" width="180px" height="180px" alt="Instagram Logo" class="logo">
+            <form action="/" method="post">
+                <input name="username" type="text" placeholder="Username" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+            </form>
+            <p>Don't have an account? <a href="./signup">Sign Up</a></p>
+    
+        </div>
+    </div>
+    {% if message %}
+
+
+<h3> {{ message}}
+</h3>    
+    {% endif %}
+</body>
+</html>
